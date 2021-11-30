@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'io.quarkus'
+	id 'eclipse'
+    id 'pl.allegro.tech.build.axion-release' version '1.11.0'
+}
+
+version = scmVersion.version
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+	implementation 'io.quarkus:quarkus-funqy-http'
+	implementation 'io.quarkus:quarkus-funqy-knative-events'
+	implementation 'io.quarkus:quarkus-kubernetes'
+	implementation 'io.quarkus:quarkus-container-image-jib'
+
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured'    
+}
+
+group = 'egyrsoft.trading'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}

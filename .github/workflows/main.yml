@@ -1,0 +1,46 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+#    runs-on: ubuntu-latest
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup GraalVM
+        uses: DeLaGuardo/setup-graalvm@5.0
+        with:
+          graalvm: '21.0.0.2'
+          java: 'java11'
+          arch: 'amd64'
+      - name: Install native-image component
+        run: |
+          gu install native-image      
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      - name: Build with Gradle
+#        run: ./gradlew build --info -Dquarkus.container-image.push=true -Dquarkus.package.type=native 
+        run: ./gradlew build --info -Dquarkus.container-image.push=true 
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+           files: build/test-results/**/*.xml  
+      - name: Publish Kubernetes Manifests
+        uses: actions/upload-artifact@v2
+        with:
+          name: kubernetes-manifests
+          path: build/kubernetes/*
+      - name: Cleanup Gradle Cache
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+        run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
