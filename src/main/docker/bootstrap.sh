@@ -1,13 +1,12 @@
 #!/bin/sh
 
-echo "Param0=" $0
-echo "Param1=" $1
-echo "Param2=" $2
-echo "Param3=" $3
-echo "Param4=" $4
+echo 'Saving message'
+echo $1 > message.base64
+echo 'Saved message'
 
-echo 'Trying to decode'
-echo $1 | base64 -d
+echo 'Decoding message'
+base64 -d -i message.base64 -o base64.json
+echo 'Decoded message'
 
 
 #set -eux
