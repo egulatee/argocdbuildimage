@@ -9,5 +9,6 @@ echo 'Decoding message'
 base64 -d message.base64 > base64.json
 echo 'Decoded message'
 
+echo '***'
 echo < base64.json
-
+echo '***'
