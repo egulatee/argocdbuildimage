@@ -7,7 +7,7 @@ echo "Param3=" $3
 echo "Param4=" $4
 
 echo 'Trying to decode'
-echo $1 | base64 --decode
+echo $1 | base64 -d
 
 
 #set -eux
