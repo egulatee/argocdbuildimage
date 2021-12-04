@@ -1,8 +1,9 @@
 plugins {
-	id 'java'
-	id 'io.quarkus'
+//	id 'java'
+//	id 'io.quarkus'
 	id 'eclipse'
     id 'pl.allegro.tech.build.axion-release' version '1.11.0'
+    id 'com.bmuschko.docker-remote-api' version '7.1.0'
 }
 
 version = scmVersion.version
@@ -11,29 +12,24 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-	implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-	implementation 'io.quarkus:quarkus-funqy-http'
-	implementation 'io.quarkus:quarkus-funqy-knative-events'
-	implementation 'io.quarkus:quarkus-kubernetes'
-	implementation 'io.quarkus:quarkus-container-image-jib'
-
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'    
-}
-
 group = 'egyrsoft.trading'
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+// Import task types
+import com.bmuschko.gradle.docker.tasks.image.*
+
+// Use task types
+task buildImage(type: DockerBuildImage) {
+    inputDir = file('src/main/docker')
+    images.add('ghcr.io/egyrsoft/argocdbuildimage:' + version)
 }
 
-compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
-}
-
-compileTestJava {
-    options.encoding = 'UTF-8'
+// Use task types
+task pushImage(type: DockerPushImage) {
+	dependsOn buildImage
+    images = buildImage.images
+    registryCredentials {
+    	url = 'https://ghcr.io/'
+		username = System.getenv('GH_USERNAME')
+		password = System.getenv('GH_PASSWORD')
+    }
 }

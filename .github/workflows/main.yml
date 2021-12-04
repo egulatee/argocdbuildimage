@@ -28,4 +28,4 @@ jobs:
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
           GH_PASSWORD: ${{ secrets.GH_PASSWORD }}
-        run: ./gradlew build --info -Dquarkus.container-image.push=true 
+        run: ./gradlew pushImage 
