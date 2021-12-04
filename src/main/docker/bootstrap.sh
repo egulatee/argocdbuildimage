@@ -12,3 +12,7 @@ echo 'Decoded message'
 echo '***'
 cat base64.json
 echo '***'
+
+echo '****'
+jq -f base64.json
+echo '****'
