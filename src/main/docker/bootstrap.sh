@@ -1,6 +1,6 @@
 #!/bin/sh
 
-base 64 --help
+base64 --help
 
 echo 'Saving message'
 echo $1 > message.base64
