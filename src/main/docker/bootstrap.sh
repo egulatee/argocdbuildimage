@@ -8,6 +8,7 @@ echo 'Decoding message'
 base64 -d -i message.base64 -o base64.json
 echo 'Decoded message'
 
+echo < base64.json
 
 #set -eux
 #​git clone ssh://<git-repo-domain>/<reponame>
