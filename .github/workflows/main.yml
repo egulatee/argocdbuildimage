@@ -28,4 +28,4 @@ jobs:
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
           GH_PASSWORD: ${{ secrets.GH_PASSWORD }}
-        run: ./gradlew pushImage 
+        run: ./gradlew pushImage --stacktrace
