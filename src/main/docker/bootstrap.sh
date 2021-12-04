@@ -1,6 +1,6 @@
 #!/bin/sh
 
-base64 --help
+#base64 --help
 
 echo 'Saving message'
 echo $1 > message.base64
@@ -8,7 +8,7 @@ echo 'Saved message'
 
 
 echo 'Decoding message'
-base64 -d -i message.base64 -o base64.json
+base64 -d -message.base64 > base64.json
 echo 'Decoded message'
 
 echo < base64.json
