@@ -6,6 +6,7 @@ echo "Param2=" $2
 echo "Param3=" $3
 echo "Param4=" $4
 
+echo 'Trying to decode'
 echo $1 | base64 --decode
 
 
