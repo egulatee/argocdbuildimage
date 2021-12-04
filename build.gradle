@@ -21,6 +21,7 @@ import com.bmuschko.gradle.docker.tasks.image.*
 task buildImage(type: DockerBuildImage) {
     inputDir = file('src/main/docker')
     images.add('ghcr.io/egyrsoft/argocdbuildimage:' + version)
+    images.add('ghcr.io/egyrsoft/argocdbuildimage:latest')
 }
 
 // Use task types
