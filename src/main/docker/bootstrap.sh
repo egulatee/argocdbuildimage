@@ -6,6 +6,9 @@ echo "Param2=" $2
 echo "Param3=" $3
 echo "Param4=" $4
 
+echo $1 | base64 --decode
+
+
 #set -eux
 #​git clone ssh://<git-repo-domain>/<reponame>
 #cd <reponame>
