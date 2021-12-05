@@ -49,7 +49,7 @@ cd /apps/
 
 mkdir -p /root/.ssh/
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-git clone $REPO_GIT_URL $REPO_NAME
+git clone $REPO_HTTPS_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
