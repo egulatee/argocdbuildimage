@@ -43,6 +43,8 @@ git config --global credential.https://github.com.password $GH_PASSWORD
 # Checkout GIT
 #
 echo 'Cloning!'
+mkdir /apps/
+cd /apps/
 git clone $REPO_URL
 echo 'Cloned!'
 
@@ -54,7 +56,6 @@ argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --passwor
 echo 'Logged into ArgoCD'
 
 cd $REPO_NAME
-ls -altr
 
 #
 # Submit ARGOCD workflow
