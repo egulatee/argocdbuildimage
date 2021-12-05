@@ -61,4 +61,5 @@ curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/
 chmod +x /usr/local/bin/argocd
 echo 'Installed ArgoCD-CLI'
 
-argocd login argocd-server
+argocd login -n argocd argocd-server
+
