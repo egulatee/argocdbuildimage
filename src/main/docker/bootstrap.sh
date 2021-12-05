@@ -71,4 +71,3 @@ argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --passwor
 echo 'Logged into ArgoCD'
 
 
-
