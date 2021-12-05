@@ -67,3 +67,4 @@ if [ -f "$WORKFLOW_FILE" ]; then
 else
     echo "$WORKFLOW_FILE doesn't exist."
 fi
+
