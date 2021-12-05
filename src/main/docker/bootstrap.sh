@@ -54,6 +54,6 @@ argocd
 
 nslookup argoserver
 
-
+argocd login argoserver
 
 
