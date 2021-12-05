@@ -45,7 +45,7 @@ git config --global credential.https://github.com.password $GH_PASSWORD
 echo 'Cloning!'
 mkdir /apps/
 cd /apps/
-git clone $REPO_URL
+git clone $REPO_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
