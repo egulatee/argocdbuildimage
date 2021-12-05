@@ -55,4 +55,3 @@ echo 'Cloned!'
 #nslookup argocd-server
 
 argocd login argocd-server
-
