@@ -17,12 +17,12 @@ echo '****'
 jq < message.json > messagepretty.json
 echo '****'
 
-#echo '****'
-#cat messagepretty.json
-#echo '****'
+echo '****'
+cat messagepretty.json
+echo '****'
 
-export REPO_URL=`jq -r ".repository.clone_url" messagepretty.json`
-echo 'REPO_URL=' $REPO_URL
+export REPO_HTTPS_URL=`jq -r ".repository.clone_url" messagepretty.json`
+echo 'REPO_HTTPS_URL=' $REPO_HTTPS_URL
 export REPO_NAME=`jq -r ".repository.name" messagepretty.json`
 echo 'REPO_NAME=' $REPO_NAME
 
@@ -45,7 +45,7 @@ git config --global credential.https://github.com.password $GH_PASSWORD
 echo 'Cloning!'
 mkdir /apps/
 cd /apps/
-git clone $REPO_URL $REPO_NAME
+git clone $REPO_HTTPS_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
