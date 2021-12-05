@@ -65,3 +65,4 @@ echo 'Logging into ArgoCD'
 argocd login argocd-server
 echo 'Logged into ArgoCD'
 
+
