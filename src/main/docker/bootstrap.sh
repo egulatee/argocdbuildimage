@@ -26,36 +26,29 @@ echo 'REPO_URL=' $REPO_URL
 export REPO_NAME=`jq -r ".repository.name" messagepretty.json`
 echo 'REPO_NAME=' $REPO_NAME
 
+#
+# Configure GIT
+#
+echo 'Configure GIT'
 export GIT_ASKPASS=no
-
 git config --global credential.helper cache
-
 echo 'Setting username'
 #echo 'Setting username=' + $GH_USERNAME
 git config --global credential.https://github.com.username $GH_USERNAME
-
 echo 'Setting password'
 #echo 'Setting password=' + $GH_PASSWORD
 git config --global credential.https://github.com.password $GH_PASSWORD
 
+#
+# Checkout GIT
+#
 echo 'Cloning!'
 git clone $REPO_URL
 echo 'Cloned!'
 
-#echo 'Listing in directory=' $REPO_NAME
-#find $REPO_NAME
-
-#echo 'Argocd'
-#argocd
-
-#echo 'Try to launch workflow
-#cd $REPO_NAME
-#./build.sh
-
-#echo 'Lookup argocd-server'
-#nslookup argocd-server.argocd
-#echo 'Looked-up argocd-server'
-
+#
+# Logging into ARGOCD
+#
 echo 'Logging into ArgoCD'
 argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
 echo 'Logged into ArgoCD'
@@ -63,6 +56,9 @@ echo 'Logged into ArgoCD'
 cd $REPO_NAME
 ls -altr
 
+#
+# Submit ARGOCD workflow
+#
 export WORKFLOW_FILE=".argocd/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
