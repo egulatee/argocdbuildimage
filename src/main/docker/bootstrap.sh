@@ -17,9 +17,9 @@ echo '****'
 jq < message.json > messagepretty.json
 echo '****'
 
-echo '****'
-cat messagepretty.json
-echo '****'
+#echo '****'
+#cat messagepretty.json
+#echo '****'
 
 export REPO_URL=`jq -r ".repository.clone_url" messagepretty.json`
 echo 'REPO_URL=' $REPO_URL
@@ -52,19 +52,9 @@ echo 'Cloned!'
 #cd $REPO_NAME
 #./build.sh
 
-#nslookup argocd-server
-
-
-##Install argocd cli
-#echo 'Installing ArgoCD-CLI'
-#curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-#chmod +x argocd
-#mv argocd /usr/local/bin/argocd
-#echo 'Installed ArgoCD-CLI'
-
-echo 'Lookup argocd-server'
-nslookup argocd-server.argocd
-echo 'Looked-up argocd-server'
+#echo 'Lookup argocd-server'
+#nslookup argocd-server.argocd
+#echo 'Looked-up argocd-server'
 
 echo 'Logging into ArgoCD'
 argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
