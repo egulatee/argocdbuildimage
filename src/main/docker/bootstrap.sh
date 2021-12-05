@@ -71,3 +71,4 @@ argocd login argocd-server.argocd
 echo 'Logged into ArgoCD'
 
 
+
