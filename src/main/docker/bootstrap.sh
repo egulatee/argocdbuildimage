@@ -49,7 +49,6 @@ git clone $REPO_GIT_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
-
 #
 # Logging into ARGOCD
 #
