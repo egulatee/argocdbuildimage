@@ -48,6 +48,8 @@ cd /apps/
 git clone $REPO_URL
 echo 'Cloned!'
 
+find .
+
 #
 # Logging into ARGOCD
 #
