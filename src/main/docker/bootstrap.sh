@@ -45,6 +45,7 @@ echo 'Cloned!'
 echo 'Listing in directory=' $REPO_NAME
 find $REPO_NAME
 
+echo 'Try to launch workflow
 cd $REPO_NAME
 ./build.sh
 

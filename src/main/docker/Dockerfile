@@ -5,6 +5,10 @@ RUN chmod +x /var/run/bootstrap.sh
 RUN apk update && apk add git coreutils jq
 
 # To troubleshoot
-#RUN apk update && apk add findutils
+RUN apk update && apk add findutils
+
+#Install argocd cli
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x /usr/local/bin/argocd
 
 ENTRYPOINT [ "/var/run/bootstrap.sh" ]
