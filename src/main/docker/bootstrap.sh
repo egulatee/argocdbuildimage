@@ -24,6 +24,7 @@ echo '****'
 export REPO_URL=`jq -r ".repository.clone_url" messagepretty.json`
 echo 'REPO_URL=' $REPO_URL
 
+echo 'Setting username=' + $GH_USERNAME
 git config credential.https://github.com.username $GH_USERNAME
 git config credential.https://github.com.password $GH_PASSWORD
 git clone $REPO_URL
