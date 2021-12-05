@@ -48,9 +48,10 @@ find $REPO_NAME
 echo 'Argocd'
 argocd
 
-echo 'Try to launch workflow
-cd $REPO_NAME
-./build.sh
+#echo 'Try to launch workflow
+#cd $REPO_NAME
+#./build.sh
+
 
 
 
