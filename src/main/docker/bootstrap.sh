@@ -70,9 +70,10 @@ echo 'Logging into ArgoCD'
 argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
 echo 'Logged into ArgoCD'
 
-export WORKFLOW_FILE=".argoserver/workflow.yaml"
+export WORKFLOW_FILE=".argo/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
 else
     echo "$WORKFLOW_FILE doesn't exist."
 fi
+
