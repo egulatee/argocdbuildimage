@@ -23,6 +23,8 @@ echo '****'
 
 export REPO_HTTPS_URL=`jq -r ".repository.clone_url" messagepretty.json`
 echo 'REPO_HTTPS_URL=' $REPO_HTTPS_URL
+export REPO_GIT_URL=`jq -r ".repository.git_url" messagepretty.json`
+echo 'REPO_GIT_URL=' $REPO_GIT_URL
 export REPO_NAME=`jq -r ".repository.name" messagepretty.json`
 echo 'REPO_NAME=' $REPO_NAME
 
@@ -30,12 +32,9 @@ echo 'REPO_NAME=' $REPO_NAME
 # Configure GIT
 #
 echo 'Configure GIT'
-#export GIT_ASKPASS=no
 git config --global credential.helper cache
-#echo 'Setting username'
 echo 'Setting username=' + $GH_USERNAME
 git config --global credential.https://github.com.username $GH_USERNAME
-#echo 'Setting password'
 echo 'Setting password=' + $GH_PASSWORD
 git config --global credential.https://github.com.password $GH_PASSWORD
 
@@ -45,7 +44,8 @@ git config --global credential.https://github.com.password $GH_PASSWORD
 echo 'Cloning!'
 mkdir /apps/
 cd /apps/
-git clone $REPO_HTTPS_URL $REPO_NAME
+#git clone $REPO_HTTPS_URL $REPO_NAME
+git clone $REPO_GIT_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
