@@ -41,5 +41,6 @@ git clone $REPO_URL
 echo 'Cloned!'
 
 echo 'Listing in directory=' $REPO_NAME
-ls -ltr $REPO_NAME
+find $REPO_NAME
+
 
