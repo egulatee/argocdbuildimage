@@ -30,7 +30,7 @@ echo 'REPO_NAME=' $REPO_NAME
 # Configure GIT
 #
 echo 'Configure GIT'
-export GIT_ASKPASS=no
+#export GIT_ASKPASS=no
 git config --global credential.helper cache
 echo 'Setting username'
 #echo 'Setting username=' + $GH_USERNAME
