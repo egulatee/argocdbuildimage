@@ -32,11 +32,11 @@ echo 'REPO_NAME=' $REPO_NAME
 echo 'Configure GIT'
 #export GIT_ASKPASS=no
 git config --global credential.helper cache
-echo 'Setting username'
-#echo 'Setting username=' + $GH_USERNAME
+#echo 'Setting username'
+echo 'Setting username=' + $GH_USERNAME
 git config --global credential.https://github.com.username $GH_USERNAME
-echo 'Setting password'
-#echo 'Setting password=' + $GH_PASSWORD
+#echo 'Setting password'
+echo 'Setting password=' + $GH_PASSWORD
 git config --global credential.https://github.com.password $GH_PASSWORD
 
 #
