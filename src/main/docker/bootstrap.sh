@@ -30,11 +30,13 @@ export GIT_ASKPASS=no
 
 git config --global credential.helper cache
 
-echo 'Setting username=' + $GH_USERNAME
+echo 'Setting username'
+#echo 'Setting username=' + $GH_USERNAME
 git config --global credential.https://github.com.username $GH_USERNAME
-echo 'Setting password=' + $GH_PASSWORD
-git config --global credential.https://github.com.password $GH_PASSWORD
 
+echo 'Setting password'
+#echo 'Setting password=' + $GH_PASSWORD
+git config --global credential.https://github.com.password $GH_PASSWORD
 
 echo 'Cloning!'
 git clone $REPO_URL
@@ -42,5 +44,9 @@ echo 'Cloned!'
 
 echo 'Listing in directory=' $REPO_NAME
 find $REPO_NAME
+
+cd $REPO_NAME
+./build.sh
+
 
 
