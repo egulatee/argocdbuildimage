@@ -55,12 +55,12 @@ echo 'Cloned!'
 #nslookup argocd-server
 
 
-#Install argocd cli
-echo 'Installing ArgoCD-CLI'
-curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-chmod +x argocd
-mv argocd /usr/local/bin/argocd
-echo 'Installed ArgoCD-CLI'
+##Install argocd cli
+#echo 'Installing ArgoCD-CLI'
+#curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+#chmod +x argocd
+#mv argocd /usr/local/bin/argocd
+#echo 'Installed ArgoCD-CLI'
 
 echo 'Lookup argocd-server'
 nslookup argocd-server.argocd
