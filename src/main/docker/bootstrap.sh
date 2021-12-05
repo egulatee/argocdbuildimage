@@ -63,7 +63,7 @@ mv argocd /usr/local/bin/argocd
 echo 'Installed ArgoCD-CLI'
 
 echo 'Logging into ArgoCD'
-argocd login argocd-server
+argocd login argocd-server.argocd
 echo 'Logged into ArgoCD'
 
 
