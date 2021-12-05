@@ -67,7 +67,7 @@ nslookup argocd-server.argocd
 echo 'Looked-up argocd-server'
 
 echo 'Logging into ArgoCD'
-argocd login argocd-server.argocd
+argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
 echo 'Logged into ArgoCD'
 
 
