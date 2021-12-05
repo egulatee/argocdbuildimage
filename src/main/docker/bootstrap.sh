@@ -23,7 +23,9 @@ echo '****'
 
 export REPO_HTTPS_URL=`jq -r ".repository.clone_url" messagepretty.json`
 echo 'REPO_HTTPS_URL=' $REPO_HTTPS_URL
-export REPO_GIT_URL=`jq -r ".repository.ssh_url" messagepretty.json`
+#export REPO_GIT_URL=`jq -r ".repository.ssh_url" messagepretty.json`
+#echo 'REPO_GIT_URL=' $REPO_GIT_URL
+export REPO_GIT_URL=`jq -r ".repository.git_url" messagepretty.json`
 echo 'REPO_GIT_URL=' $REPO_GIT_URL
 export REPO_NAME=`jq -r ".repository.name" messagepretty.json`
 echo 'REPO_NAME=' $REPO_NAME
