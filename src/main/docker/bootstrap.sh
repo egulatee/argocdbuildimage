@@ -62,6 +62,6 @@ chmod +x /usr/local/bin/argocd
 echo 'Installed ArgoCD-CLI'
 
 echo 'Logging into ArgoCD'
-argocd login -n argocd argocd-server
+argocd login argocd-server
 echo 'Logged into ArgoCD'
 
