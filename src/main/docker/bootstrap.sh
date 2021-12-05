@@ -57,8 +57,9 @@ echo 'Cloned!'
 
 #Install argocd cli
 echo 'Installing ArgoCD-CLI'
-curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-chmod +x /usr/local/bin/argocd
+curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x argocd
+mv argocd /usr/local/bin/argocd
 echo 'Installed ArgoCD-CLI'
 
 echo 'Logging into ArgoCD'
