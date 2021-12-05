@@ -9,9 +9,9 @@ echo 'Decoding message'
 base64 -d message.base64 > message.json
 echo 'Decoded message'
 
-echo '***'
-cat message.json
-echo '***'
+#echo '***'
+#cat message.json
+#echo '***'
 
 echo '****'
 jq < message.json > messagepretty.json
