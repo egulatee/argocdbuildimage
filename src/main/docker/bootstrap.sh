@@ -52,6 +52,7 @@ argocd
 #cd $REPO_NAME
 #./build.sh
 
+nslookup argoserver
 
 
 
