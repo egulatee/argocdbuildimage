@@ -62,6 +62,10 @@ chmod +x argocd
 mv argocd /usr/local/bin/argocd
 echo 'Installed ArgoCD-CLI'
 
+echo 'Lookup argocd-server'
+nslookup argocd-server.argocd
+echo 'Looked-up argocd-server'
+
 echo 'Logging into ArgoCD'
 argocd login argocd-server.argocd
 echo 'Logged into ArgoCD'
