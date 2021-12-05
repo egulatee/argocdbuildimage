@@ -42,11 +42,11 @@ echo 'Cloning!'
 git clone $REPO_URL
 echo 'Cloned!'
 
-echo 'Listing in directory=' $REPO_NAME
-find $REPO_NAME
+#echo 'Listing in directory=' $REPO_NAME
+#find $REPO_NAME
 
-echo 'Argocd'
-argocd
+#echo 'Argocd'
+#argocd
 
 #echo 'Try to launch workflow
 #cd $REPO_NAME
