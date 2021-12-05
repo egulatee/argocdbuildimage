@@ -44,7 +44,8 @@ echo 'REPO_NAME=' $REPO_NAME
 echo 'Cloning!'
 mkdir /apps/
 cd /apps/
-#git clone $REPO_HTTPS_URL $REPO_NAME
+
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 git clone $REPO_GIT_URL $REPO_NAME
 echo 'Cloned!'
 
