@@ -76,6 +76,7 @@ ls -altr
 export WORKFLOW_FILE=".argocd/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
+    argocd submit .argocd/workflow.yaml
 else
     echo "$WORKFLOW_FILE doesn't exist."
 fi
