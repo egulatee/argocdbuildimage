@@ -6,13 +6,25 @@ echo 'Saved message'
 
 
 echo 'Decoding message'
-base64 -d message.base64 > base64.json
+base64 -d message.base64 > message.json
 echo 'Decoded message'
 
 echo '***'
-cat base64.json
+cat message.json
 echo '***'
 
 echo '****'
-jq -f base64.json
+jq < message.json > messagepretty.json
 echo '****'
+
+echo '****'
+cat messagepretty.json
+echo '****'
+
+export REPO_URL=`jq -r ".repository.clone_url" messagepretty.json`
+echo 'REPO_URL=' $REPO_URL
+
+git config credential.https://github.com.username $GH_USERNAME
+git config credential.https://github.com.password $GH_PASSWORD
+git clone $REPO_URL
+
