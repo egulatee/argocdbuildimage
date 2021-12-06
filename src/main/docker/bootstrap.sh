@@ -48,7 +48,9 @@ mkdir /apps/
 cd /apps/
 
 mkdir -p /root/.ssh/
-ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+ls -alr /root/.ssh/
+
+#ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 git clone $REPO_HTTPS_URL $REPO_NAME
 echo 'Cloned!'
 
