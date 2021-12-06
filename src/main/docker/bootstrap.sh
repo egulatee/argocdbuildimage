@@ -54,7 +54,6 @@ ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 #ls -ltr ~/.ssh/
 #ls -ltr ~/.ssh/github_rsa/
 ln -s ~/.ssh/github_rsa/ssh-privatekey ~/.ssh/id_rsa
-
 echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
