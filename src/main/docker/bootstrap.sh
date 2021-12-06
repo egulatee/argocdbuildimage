@@ -76,13 +76,29 @@ echo 'Logged into ArgoCD'
 
 cd $REPO_NAME
 
+
+#
+# Setup argo
+#
+# Download the binary
+curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.2.4/argo-linux-amd64.gz
+# Unzip
+gunzip argo-linux-amd64.gz
+# Make binary executable
+chmod +x argo-linux-amd64
+# Move binary to path
+mv ./argo-linux-amd64 /usr/local/bin/argo
+# Test installation
+argo version
+
 #
 # Submit ARGOCD workflow
 #
 export WORKFLOW_FILE=".argocd/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
-    argocd submit .argocd/workflow.yaml
+    argo submit .argocd/workflow.yaml
 else
     echo "$WORKFLOW_FILE doesn't exist."
 fi
+
