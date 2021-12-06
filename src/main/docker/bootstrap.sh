@@ -43,15 +43,15 @@ echo 'REPO_NAME=' $REPO_NAME
 #
 # Checkout GIT
 #
-echo 'Cloning!'
+echo 'Setup for git'
 mkdir /apps/
 cd /apps/
-
-mkdir -p /root/.ssh/
-ls -alr /root/.ssh/
+#mkdir -p /root/.ssh/
+#ls -alr /root/.ssh/
 cat /root/.ssh/ssh-privatekey
 
 #ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
 
