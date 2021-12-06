@@ -50,6 +50,7 @@ cd /apps/
 #ls -alr /root/.ssh/
 #cat /root/.ssh/ssh-privatekey
 
+chmod u+x ~/.ssh/
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
