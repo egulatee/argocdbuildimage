@@ -68,7 +68,11 @@ ln -s ~/.ssh/github_rsa/ssh-publickey ~/.ssh/id_rsa.pub
 echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
+
+echo 'Checkout specific version'
+cd $REPO_NAME
 git checkout $COMMIT_ID
+echo 'Checked specific version'
 
 find .
 
