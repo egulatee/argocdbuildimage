@@ -30,6 +30,9 @@ echo 'REPO_GIT_URL=' $REPO_GIT_URL
 export REPO_NAME=`jq -r ".repository.name" messagepretty.json`
 echo 'REPO_NAME=' $REPO_NAME
 
+export COMMIT_ID=`jq -r ".head_commit.id" messagepretty.json`
+echo 'COMMIT_ID=' $COMMIT_ID
+
 #
 # Configure GIT
 #
@@ -65,6 +68,7 @@ ln -s ~/.ssh/github_rsa/ssh-publickey ~/.ssh/id_rsa.pub
 echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
+git checkout $COMMIT_ID
 
 find .
 
