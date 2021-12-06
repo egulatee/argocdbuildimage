@@ -97,7 +97,7 @@ cd $REPO_NAME
 export WORKFLOW_FILE=".argocd/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
-    argo -s argo-server.argo:2746 submit .argocd/workflow.yaml
+    argo -k -s argo-server.argo:2746 submit .argocd/workflow.yaml
 else
     echo "$WORKFLOW_FILE doesn't exist."
 fi
