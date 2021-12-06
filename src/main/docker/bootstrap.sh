@@ -49,9 +49,10 @@ cd /apps/
 
 mkdir -p /root/.ssh/
 ls -alr /root/.ssh/
+cat /root/.ssh/ssh-privatekey
 
 #ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-git clone $REPO_GIT_URL $REPO_NAME
+git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
 
 find .
