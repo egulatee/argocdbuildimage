@@ -57,7 +57,7 @@ ln -s ~/.ssh/github_rsa/ssh-privatekey ~/.ssh/id_rsa
 ln -s ~/.ssh/github_rsa/ssh-publickey ~/.ssh/id_rsa.pub
 #cat ~/.ssh/id_rsa
 #cat ~/.ssh/id_rsa.pub
-ls -ltr ~/.ssh/
+#ls -ltr ~/.ssh/
 
 #
 # Git cloning
@@ -66,15 +66,14 @@ echo 'Cloning!=' $REPO_SSH_URL
 git clone $REPO_SSH_URL $REPO_NAME
 echo 'Cloned!'
 
-#find .
+find .
+
 #
 # Logging into ARGOCD
 #
-echo 'Logging into ArgoCD'
-argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
-echo 'Logged into ArgoCD'
-
-cd $REPO_NAME
+#echo 'Logging into ArgoCD'
+#argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
+#echo 'Logged into ArgoCD'
 
 
 #
@@ -94,6 +93,7 @@ argo version
 #
 # Submit ARGOCD workflow
 #
+cd $REPO_NAME
 export WORKFLOW_FILE=".argocd/workflow.yaml"
 if [ -f "$WORKFLOW_FILE" ]; then
     echo "$WORKFLOW_FILE exists."
