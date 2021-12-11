@@ -74,16 +74,6 @@ cd $REPO_NAME
 git checkout $COMMIT_ID
 echo 'Checked specific version'
 
-find .
-
-#
-# Logging into ARGOCD
-#
-#echo 'Logging into ArgoCD'
-#argocd login argocd-server.argocd --insecure --username $ARGO_USERNAME --password $ARGO_PASSWORD
-#echo 'Logged into ArgoCD'
-
-
 #
 # Setup argo
 #
