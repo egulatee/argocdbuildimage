@@ -47,8 +47,8 @@ echo 'COMMIT_ID=' $COMMIT_ID
 # Checkout GIT
 #
 echo 'Setup for git'
-mkdir /apps/
-cd /apps/
+mkdir /application/
+cd /application/
 #mkdir -p /root/.ssh/
 #ls -alr /root/.ssh/
 #cat /root/.ssh/ssh-privatekey
