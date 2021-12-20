@@ -4,6 +4,8 @@ echo 'Saving message'
 echo $1 > message.base64
 echo 'Saved message'
 
+cat message.base64
+
 
 echo 'Decoding message'
 base64 -d message.base64 > message.json
