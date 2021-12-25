@@ -1,15 +1,55 @@
 #!/bin/sh
 
-export REPO_HTTPS_URL=$1
+echo 'Saving message'
+echo $1 > message.base64
+echo 'Saved message'
+
+#cat message.base64
+
+
+echo 'Decoding message'
+base64 -d message.base64 > message.json
+echo 'Decoded message'
+
+#echo '***'
+#cat message.json
+#echo '***'
+
+echo '****'
+jq < message.json > messagepretty.json
+echo '****'
+
+
+
+jq -r ".body" messagepretty.json > body.base64
+base64 -d body.base64 > body.json
+jq < body.json > bodypretty.json
+
+echo '****'
+cat bodypretty.json
+echo '****'
+
+
+export REPO_HTTPS_URL=`jq -r ".repository.clone_url" bodypretty.json`
 echo 'REPO_HTTPS_URL=' $REPO_HTTPS_URL
-export REPO_SSH_URL=$2
+export REPO_SSH_URL=`jq -r ".repository.ssh_url" bodypretty.json`
 echo 'REPO_SSH_URL=' $REPO_GIT_URL
-export REPO_GIT_URL=$3
+export REPO_GIT_URL=`jq -r ".repository.git_url" bodypretty.json`
 echo 'REPO_GIT_URL=' $REPO_GIT_URL
-export REPO_NAME=$4
+export REPO_NAME=`jq -r ".repository.name" bodypretty.json`
 echo 'REPO_NAME=' $REPO_NAME
-export COMMIT_ID=$5
+export COMMIT_ID=`jq -r ".head_commit.id" bodypretty.json`
 echo 'COMMIT_ID=' $COMMIT_ID
+
+#
+# Configure GIT
+#
+#echo 'Configure GIT'
+#git config --global credential.helper cache
+#echo 'Setting username=' + $GH_USERNAME
+#git config --global credential.https://github.com.username $GH_USERNAME
+#echo 'Setting password=' + $GH_PASSWORD
+#git config --global credential.https://github.com.password $GH_PASSWORD
 
 #
 # Checkout GIT
