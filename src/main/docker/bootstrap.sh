@@ -1,23 +1,19 @@
 #!/bin/sh
 
-#echo 'Saving message'
-#echo $1 > message.base64
-#echo 'Saved message'
+echo 'Saving message'
+echo $1 > message.base64
+echo 'Saved message'
 
-#cat message.base64
+cat message.base64
 
 
-#echo 'Decoding message'
-#base64 -d message.base64 > message.json
-#echo 'Decoded message'
+echo 'Decoding message'
+base64 -d message.base64 > message.json
+echo 'Decoded message'
 
 #echo '***'
 #cat message.json
 #echo '***'
-
-echo 'Saving message'
-echo $1 > message.json
-echo 'Saved message'
 
 echo '****'
 jq < message.json > messagepretty.json
