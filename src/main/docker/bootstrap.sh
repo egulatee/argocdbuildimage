@@ -4,7 +4,7 @@ echo 'Saving message'
 echo $1 > message.base64
 echo 'Saved message'
 
-cat message.base64
+#cat message.base64
 
 
 echo 'Decoding message'
@@ -19,14 +19,15 @@ echo '****'
 jq < message.json > messagepretty.json
 echo '****'
 
-echo '****'
-cat messagepretty.json
-echo '****'
 
 
 jq -r ".body" messagepretty.json > body.base64
 base64 -d body.base64 > body.json
 jq < body.json > bodypretty.json
+
+echo '****'
+cat bodypretty.json
+echo '****'
 
 
 export REPO_HTTPS_URL=`jq -r ".repository.clone_url" bodypretty.json`
